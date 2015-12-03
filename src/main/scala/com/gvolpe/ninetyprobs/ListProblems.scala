@@ -15,7 +15,7 @@ trait ListProblems {
   /**
     * P03 (*) Find the Kth element of a list.
     * */
-  def nth[T](list: List[T]): T
+  def nth[T](index: Int, list: List[T]): T
 
   /**
     * P04 (*) Find the number of elements of a list.

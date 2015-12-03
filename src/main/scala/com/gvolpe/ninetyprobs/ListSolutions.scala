@@ -1,13 +1,17 @@
 package com.gvolpe.ninetyprobs
 
-object Lists extends ListProblems {
+import scala.annotation.tailrec
 
+object ListSolutions extends ListProblems {
+
+  @tailrec
   override def last[T](list: List[T]): T = list match {
-    case List() => throw new IllegalArgumentException("List must contain at least one element")
+    case Nil => throw new IllegalArgumentException("List must contain at least one element")
     case h :: Nil => h
     case h :: t => last(t)
   }
 
+  @tailrec
   override def penultimate[T](list: List[T]): T = {
     require(list.length >= 2, "List must contain at least two elements")
     list match {
@@ -16,7 +20,17 @@ object Lists extends ListProblems {
     }
   }
 
-  override def nth[T](list: List[T]): T = ???
+  override def nth[T](index: Int, list: List[T]): T = {
+    require(index >= 0, "Index must be greater or equal than zero")
+    require(list.length > index, "List length must be greater than the given index")
+
+    @tailrec
+    def nthLoop(x: Int, seq: List[T]): T = (x, seq) match {
+      case (0, h :: t) => h
+      case (n, h :: t) => nthLoop(n - 1, t)
+    }
+    nthLoop(index, list)
+  }
 
   override def length[T](list: List[T]): T = ???
 
