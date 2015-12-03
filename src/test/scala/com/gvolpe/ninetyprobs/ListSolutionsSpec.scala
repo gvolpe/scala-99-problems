@@ -63,6 +63,21 @@ class ListSolutionsSpec extends BaseSpec {
       result should be (numbers.reverse)
     }
 
+    "BE palindrome" in {
+      val result = isPalindrome(List(1,4,6,4,1))
+      result should be (true)
+    }
+
+    "BE NOT palindrome" in {
+      val result = isPalindrome(numbers)
+      result should be (false)
+    }
+
+    "BE NOT palindrome when the list is empty" in {
+      val result = isPalindrome(List())
+      result should be (false)
+    }
+
   }
 
 }

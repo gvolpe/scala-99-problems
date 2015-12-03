@@ -42,7 +42,7 @@ object ListSolutions extends ListProblems {
     case h :: t => reverse(t) ::: List(h)
   }
 
-  override def isPalindrome[T](list: List[T]): Boolean = ???
+  override def isPalindrome[T](list: List[T]): Boolean = list.nonEmpty && list == list.reverse
 
   override def flatten[T](list: List[T], e: T, list2: List[T]): List[T] = ???
 
