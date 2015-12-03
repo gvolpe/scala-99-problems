@@ -20,7 +20,7 @@ trait ListProblems {
   /**
     * P04 (*) Find the number of elements of a list.
     * */
-  def length[T](list: List[T]): T
+  def length[T](list: List[T]): Int
 
   /**
     * P05 (*) Reverse a list.

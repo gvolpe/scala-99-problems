@@ -53,6 +53,16 @@ class ListSolutionsSpec extends BaseSpec {
       }
     }
 
+    "retrieve the length" in {
+      val result = ListSolutions.length(numbers)
+      result should be (numbers.length)
+    }
+
+    "reversed" in {
+      val result = reverse(numbers)
+      result should be (numbers.reverse)
+    }
+
   }
 
 }

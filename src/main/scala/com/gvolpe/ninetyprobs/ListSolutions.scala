@@ -32,9 +32,15 @@ object ListSolutions extends ListProblems {
     nthLoop(index, list)
   }
 
-  override def length[T](list: List[T]): T = ???
+  override def length[T](list: List[T]): Int = list match {
+    case Nil => 0
+    case h :: t => 1 + length(t)
+  }
 
-  override def reverse[T](list: List[T]): List[T] = ???
+  override def reverse[T](list: List[T]): List[T] = list match {
+    case Nil => List()
+    case h :: t => reverse(t) ::: List(h)
+  }
 
   override def isPalindrome[T](list: List[T]): Boolean = ???
 
